@@ -1,10 +1,17 @@
-const express=require('express');
-const cors=require('cors');
 
-const app=express();
+const express=require('express');//importing express
+const cors=require('cors');//cross origin resource sharing
+const postsRoutes=require('./routes/posts');//importing routes
+const dotenv=require('dotenv');//for environment variables
 
-app.use(cors());
+const app=express();//initializing express
+dotenv.config();//configuring dotenv
 
+//middlewares
+app.use(express.json());//to parse json data
+app.use(cors());//to allow cross origin requests
+
+//sample json data
 const posts=[
     {
         "id":1,
@@ -96,12 +103,12 @@ const posts=[
 }
 ];
 
-app.get('/posts', (req, res) => {  
-    res.setHeader('Content-Type', 'application/json');
-    res.json(posts);
-  });z
+
+//api routes
+app.use('/posts',postsRoutes);
 
   
-  app.listen(3000,()=>{
-    console.log('server is running on port 3000');
+//server
+app.listen(process.env.PORT,()=>{
+  console.log('server is running on port 3000');
 });
