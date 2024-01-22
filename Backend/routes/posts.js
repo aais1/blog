@@ -1,31 +1,19 @@
 const express = require('express');
 const router = express.Router();
+const Blog=require('../models/blogModel');
+const {createBlog,getBlogs,getBlog,deleteBlog}=require('../controllers/blogController');
 
 // Get all posts
-router.get('/', (req, res) => {
-    // Logic to fetch all posts from the database
-    res.json({ msg: "Get all posts" });
-});
+router.get('/',getBlogs);
 
 // Get post by ID
-router.get('/:id', (req, res) => {
-    const postId = req.params.id;
-    // Logic to fetch a specific post by ID from the database
-    res.json({ msg: `Get post with ID ${postId}` });
-});
+router.get('/:id', getBlog);
 
 // Create a new post
-router.post('/', (req, res) => {
-    // Logic to create a new post in the database
-    res.json({ msg: "Create a new post" });
-});
+router.post('/new', createBlog);
 
 // Delete post by ID
-router.delete('/:id', (req, res) => {
-    const postId = req.params.idY
-    // Logic to delete a specific post by ID from the database
-    res.json({ msg: `Delete post with ID ${postId}` });
-});
+router.delete('/:id', deleteBlog);
 
 // Update post by ID
 router.patch('/:id', (req, res) => {
