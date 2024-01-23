@@ -12,8 +12,6 @@ export default function NewPost() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`Name: ${formData.name}, Email: ${formData.intro}, Message: ${formData.message}`
-    );
     setFormData({ name: "", intro: "", message: "" });
 };
 
