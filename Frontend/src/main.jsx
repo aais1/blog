@@ -14,7 +14,7 @@ const router=createBrowserRouter(
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/posts" element={<Posts />}/>
-        <Route path="/post/:id" element={<Post />}/>
+        <Route path="/posts/:id" element={<Post />}/>
         <Route path="posts/new" element={<NewPost />} />
         <Route path='*' element={<Error404 />}/> {/* ERROR 404 Page */}
     </Route>

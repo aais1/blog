@@ -21,7 +21,7 @@ const Header = () => {
 
       {
         (
-          <div className={`md:hidden fixed top-0 left-0  ${showMenu ? `translate-x-[0px]`:`translate-x-[-300px]`} h-[100vh] w-[50vw] transition-transform duration-150 bg-gray-700`}>
+          <div className={`md:hidden fixed top-0 left-0  ${showMenu ? `translate-x-[0px]`:`translate-x-[-400px]`} h-[100vh] w-[50vw] transition-transform duration-100 bg-gray-700`}>
             <div className="flex flex-col gap-3 m-2 md:hidden">
               <div className="flex item-center justify-center">
                 <NavLink to='/' onClick={() => { setShowMenu(false) }}>

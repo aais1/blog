@@ -5,7 +5,7 @@ const getBlogs=async(req,res)=>{
     try{
         const blogs=await Blog.find({}).sort({createdAt:-1});
         res.status(200).json({blogs});
-    }catch(err){
+    }catch(error){
         res.status(400).json({error:error.message})
     }
 }
@@ -15,7 +15,7 @@ const getBlog=async(req,res)=>{
     try{
         const blog=await Blog.findById(req.params.id);
         res.status(200).json({blog});
-    }catch(err){
+    }catch(error){
         res.status(400).json({error:error.message})
     }
 
@@ -26,11 +26,10 @@ const createBlog= async(req,res)=>{
         const {title,intro,body}=req.body;
         try{
             const blog = await Blog.create({title,intro,body});
-            res.status(200).json({blog});
-        }catch(err){
+            res.status(201).json({blog});
+        }catch(error){
             res.status(400).json({error:error.message})
         }
-        res.json({ msg: "Create a new post" });
 }
 
 // Delete post by ID
@@ -38,7 +37,7 @@ const deleteBlog=async(req,res)=>{
     try{
         const blog=await Blog.findByIdAndDelete(req.params.id);
         res.status(200).json({blog});
-    }catch(err){
+    }catch(error){
         res.status(400).json({error:error.message})
     }
 }
