@@ -27,32 +27,34 @@ const Posts = () => {
     fetchData();
   }, []);
 
-  return (
-    <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className='text-3xl font-bold underline text-center mt-4'>Posts:</div>
-          <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-6'>
-            {posts.length > 0 ? (
-              posts.map((post) => (
-                <Link to={`/posts/${post._id}`} key={post._id}>
-                  <li className='m-5 p-2 border hover:cursor-pointer hover:border-black duration-75'>
-                    <h2 className='font-bold text-2xl'>{post.title}</h2>
-                    <p className='font-bold text-md'>{post.intro}</p>
-                    <p className='text-md max-w-[100%] max-h-[100px] line-clamp-4'>{post.body}</p>
-                  </li>
-                </Link>
-              ))
-            ) : (
-              <p>No posts to show</p>
-            )}
-          </ul>
-        </>
-      )}
-    </>
-  );
-};
+    return (
+      <>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+          <div className='min-h-[68.8vh]'>
+            <div className='text-3xl font-bold underline text-center mt-4'>Posts:</div>
+            <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-6'>
+              {posts.length > 0 ? (
+                posts.map((post) => (
+                  <Link to={`/posts/${post._id}`} key={post._id}>
+                    <li className='m-5 p-2 border hover:cursor-pointer hover:border-black duration-75'>
+                      <h2 className='font-bold text-2xl'>{post.title}</h2>
+                      <p className='font-bold text-md'>{post.intro}</p>
+                      <p className='text-md max-w-[100%] max-h-[100px] line-clamp-4'>{post.body}</p>
+                    </li>
+                  </Link>
+                ))
+              ) : (
+                <p>No posts to show</p>
+              )}
+            </ul>
+          </div>
+          </>
+        )}
+      </>
+    );
+  };
 
-export default Posts;
+  export default Posts;
